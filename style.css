@@ -1,0 +1,136 @@
+/* 主軸-預設横的row */
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* wrap自動換行 */
+  width: 85%;
+  /* 新增：寬度和標頭一致 */
+  margin: 0 auto;
+  /* 新增：置中 */
+}
+
+.card {
+  /* typesetting of card in containers */
+  /* flex-basis : 一個item在容器所佔的比例、百分比、像素等， 100%/13張卡片=7% */
+  /* flex-grow : 若有剩餘空間是否要吃掉,0代表就算有剩餘空間也不會把剩餘空間填滿, */
+  /* 1代表會與數字為1的人平均分配剩餘空間，2代表會比1大1倍 */
+  /* flex-shirnk: 收縮，當空間不夠用時，是否會收縮它的大小 */
+  flex: 7% 1 1;
+  /* 修改：卡片需要分配剩餘空間 */
+  /* vw為相對單位 100vw 相當完整的視窗大小 8vw相當於8%視窗大小 */
+  height: 8vw;
+  /* 邊框設定 */
+  border: 2px solid #e0e0e0;
+  /* typesetting of card in element */
+  display: flex;
+  /* 由row水平行改為column垂直列 */
+  /* main axis主要軸，與主要軸交叉的叫交叉軸cross axis */
+  flex-direction: column;
+  /* 對主要軸做設定 */
+  justify-content: space-around;
+  /* 增加卡片周圍空間 */
+  margin: 2px;
+  /* 設定 box-sizing 包含padding和border */
+  box-sizing: border-box;
+}
+
+.card img {
+  max-width: 30%;
+  /* 排版放中間 交叉軸專用*/
+  align-self: center;
+}
+
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+
+.card p:last-child {
+  /* 角度 180度 */
+  /* transform: rotate(0.5turn); */
+  transform: rotate(180deg);
+}
+
+.back {
+  background: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png");
+  background-size: cover;
+}
+
+.paired {
+  background-color: #dae0e3;
+}
+
+#header {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/** Game finished **/
+.completed {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 999;
+  top: 0vh;
+  background-image: url('https://i.pinimg.com/originals/e2/a5/c2/e2a5c2180b14bab5edb007e8c944813c.jpg');
+  /* background-color: RGBA(232, 246, 254, 0.8); */
+  width: 100vw;
+  height: 37vw;
+  padding: 60px 0;
+  /* 圖片透明度 */
+  opacity: 0.7;
+  /* 圖片舖滿 */
+  background-size: cover;
+}
+
+.completed>p {
+  font-size: 1.5em;
+  color: rgb(31, 2, 71);
+  text-align: center;
+  margin: 0;
+}
+
+.completed>p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #d936e4;
+}
